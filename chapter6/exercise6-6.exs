@@ -6,14 +6,14 @@ defmodule Chop do
     _guess(guess, target, range)
   end
 
-  def _guess(guess, guess, _)  do
+  defp _guess(guess, guess, _)  do
     IO.puts "Yes, it's #{guess}"
   end
-  def _guess(guess, target, range) when guess < target do
+  defp _guess(guess, target, range) when guess < target do
     _..hi = range
     guess(target, (guess + 1)..hi)
   end
-  def _guess(guess, target, range) when guess > target do
+  defp _guess(guess, target, range) when guess > target do
     lo.._ = range
     guess(target, lo..(guess - 1))
   end
